@@ -11,24 +11,24 @@ services:
       - DB_USER=${DB_USER:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-postgres}
     networks:
-      - app-network
+      - microservices-network
 
-  postgres:
+  company-postgres:
     image: postgres:15
     environment:
       - POSTGRES_DB=${DB_NAME:-company_db}
       - POSTGRES_USER=${DB_USER:-postgres}
       - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
     ports:
-      - "5432:5432"
+      - "${DB_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - app-network
+      - microservices-network
 
 volumes:
   postgres_data:
 
 networks:
-  app-network:
-    driver: bridge
+  microservices-network:
+    external: true
