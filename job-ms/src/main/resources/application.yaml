@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: job-ms
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:job_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8082
+
+info:
+  app:
+    name: JobMicroservice
+    description: A microservice to manage jobs
+    version: 1.0.0

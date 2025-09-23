@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: company-ms
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${DB_NAME:company_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8081
+
+info:
+  app:
+    name: CompanyMicroservice
+    description: A microservice to manage companies
+    version: 1.0.0
