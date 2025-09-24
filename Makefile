@@ -70,16 +70,9 @@ job-down: ## Stop job microservice
 review-down: ## Stop review microservice
 	docker-compose -f review-ms/docker-compose.yml -p review down
 
-# Alternative: Use the aggregate compose file
-up-aggregate: ## Start all services using the main docker-compose.yml
-	docker-compose up -d
-
-down-aggregate: ## Stop all services using the main docker-compose.yml
-	docker-compose down
-
 # Show database connection info
 db-info: ## Show database connection information
 	@echo "Database Connection Info:"
-	@echo "Company DB: localhost:5435 (companydb/postgres/postgres)"
-	@echo "Job DB:     localhost:5433 (jobdb/postgres/postgres)"
-	@echo "Review DB:  localhost:5434 (reviewdb/postgres/postgres)"
+	@echo "Company DB: localhost:5435 (company_db/postgres/postgres)"
+	@echo "Job DB:     localhost:5433 (job_db/postgres/postgres)"
+	@echo "Review DB:  localhost:5534 (review_db/postgres/postgres)"

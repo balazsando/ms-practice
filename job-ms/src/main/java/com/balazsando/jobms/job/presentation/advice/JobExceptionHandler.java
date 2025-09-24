@@ -1,6 +1,6 @@
 package com.balazsando.jobms.job.presentation.advice;
 
-import com.balazsando.jobms.job.business.exception.CompanyNotFoundInJobContextException;
+import com.balazsando.jobms.job.business.exception.CompanyNotFoundException;
 import com.balazsando.jobms.job.business.exception.JobNotFoundException;
 import com.balazsando.jobms.job.presentation.controller.JobController;
 import org.springframework.http.HttpStatus;
@@ -16,8 +16,8 @@ public class JobExceptionHandler {
         return new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
-    @ExceptionHandler(CompanyNotFoundInJobContextException.class)
-    public ResponseStatusException handleJobNotFound(CompanyNotFoundInJobContextException ex) {
+    @ExceptionHandler(CompanyNotFoundException.class)
+    public ResponseStatusException handleCompanyNotFound(CompanyNotFoundException ex) {
         return new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 }
